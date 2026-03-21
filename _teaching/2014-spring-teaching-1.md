@@ -1,20 +1,11 @@
 ---
-title: "Teaching experience 1"
+title: "Organic Chemistry"
 collection: teaching
 type: "Undergraduate course"
-permalink: /teaching/2014-spring-teaching-1
-venue: "University 1, Department"
+permalink: /teaching/organic-chemistry
+venue: "Yalova University, Department of Chemistry"
 date: 2014-01-01
-location: "City, Country"
+location: "Yalova, Türkiye"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
-
-Heading 1
-======
-
-Heading 2
-======
-
-Heading 3
-======
+Undergraduate level Organic Chemistry course covering fundamental principles of organic reactions, functional groups, stereochemistry, and reaction mechanisms.

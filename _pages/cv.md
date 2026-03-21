@@ -11,54 +11,65 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Ph.D., Polymer Chemistry, Bogazici University, 2005
+* M.Sc., Polymer Chemistry, Bogazici University, 1998
+* B.Sc., Chemistry, 1996
 
-Work experience
+Work Experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* **January 2020 – Present**: Associate Professor
+  * Kocaeli University, Türkiye
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* **August 2016 – Present**: Independent Consultant
+  * Various Companies (Chemical & Polymer Industries)
+  * Helping clients solve complex problems, optimize processes, and develop new products in polymer and specialty chemical applications.
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
+* **January 2010 – August 2016**: Assistant Professor
+  * Yalova University, Türkiye
+
+* **July 2008 – August 2009**: Chief of Speciality Chemicals R&D Department
+  * Gemsan
+
+* **January 2005 – December 2007**: Postdoctoral Researcher
+  * Department of Photochemistry, University of Haute Alsace, France
+
+* **February 1997 – January 2005**: Research Assistant
+  * Bogazici University, Türkiye
+
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Polymer Chemistry
+  * Photoinitiated polymerization
+  * UV-curable coatings and systems
+  * Dendritic and functional polymer synthesis
+* Materials Science
+  * Polymer nanocomposites
+  * Antibacterial coatings
+  * Biodegradable materials
+* Polymer Characterization
+* Organic Chemistry
+* R&D Management and Consulting
 
 Publications
 ======
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
+
 Talks
 ======
   <ul>{% for post in site.talks reversed %}
     {% include archive-single-talk-cv.html  %}
   {% endfor %}</ul>
-  
+
 Teaching
 ======
   <ul>{% for post in site.teaching reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
-Service and leadership
+
+Patents
 ======
-* Currently signed in to 43 different slack teams
+* Biodegradable and Cut-Resistant Work Glove (*Biyobozunur ve Kesilmez İş Eldiveni*)
+* Dimer Acid Based Oil Emulsifier Synthesis for Oil Dispersion Formulations (*Yağ Dispersiyonu Formülasyonlarında Kullanılacak Dimer Asit Bazlı Yağ Emülgatörü Sentezi*)
+* Pigment-Free White Coating (*Pigment İçermeyen Beyaz Renkli Bir Kaplama*)

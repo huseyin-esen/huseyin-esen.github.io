@@ -11,11 +11,11 @@ locale                   : "en-US"
 site_theme               : "default"
 title                    : "Hüseyin Esen"
 title_separator          : "-"
-name                     : &name "Your Name"
-description              : &description "personal description"
-url                      : https://academicpages.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
+name                     : &name "Hüseyin Esen"
+description              : &description "Associate Professor at Kocaeli University | Polymer & Industrial Chemistry Expert"
+url                      : https://huseyin-esen.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+repository               : "huseyin-esen/huseyin.esen.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
@@ -23,12 +23,12 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
-  pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
+  name             : "Hüseyin Esen"
+  pronouns         : # example: "she/her"
+  bio              : "Assoc. Prof. in Polymer & Industrial Chemistry at Kocaeli University. 25+ years of experience in polymer science, photochemistry, and materials research."
+  location         : "Kocaeli, Türkiye"
   employer         : "Kocaeli University"
-  uri              : # URL
+  uri              : "https://avesis.kocaeli.edu.tr/huseyin.esen"
   email            : "huseyin.esen@kocaeli.edu.tr" 
 
   # Academic websites
@@ -45,7 +45,7 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "academicpages"
+  github           : "huseyin-esen"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
@@ -59,7 +59,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : "hüseyin-esen-b339863"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
