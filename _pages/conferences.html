@@ -24,13 +24,19 @@ redirect_from:
 {% assign talk_items = site.talks | where_exp: "item", "item.category != 'posters'" | sort: "date" | reverse %}
 {% assign poster_items = site.talks | where: "category", "posters" | sort: "date" | reverse %}
 
-<h2>Talks</h2>
+{% comment %}
+  archive__subtitle is the theme's section heading inside an archive page
+  (year-archive.html uses it the same way). It draws a rule under the
+  heading, which is what makes a section readable as a section — a bare h2
+  with nothing under it is easy to miss at the foot of the page.
+{% endcomment %}
+<h2 class="archive__subtitle">Talks</h2>
 
 {% for post in talk_items %}
   {% include archive-single-talk.html %}
 {% endfor %}
 
-<h2>Posters</h2>
+<h2 class="archive__subtitle">Posters</h2>
 
 {% for post in poster_items %}
   {% include archive-single-talk.html %}
