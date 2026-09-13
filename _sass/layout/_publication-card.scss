@@ -5,14 +5,17 @@
    work, and the graphical abstract floats beside the abstract text.
    ========================================================================== */
 
-/* Alpha washes rather than fixed colours, so the card holds on either
-   theme ground. The rail is the most saturated element and already clears
-   4.59:1 against its white DOI text, so vividness is spent on the border
-   and the header band, which were washed out at 0.28 and 0.07. */
-$pubcard-rail       : $info-color;
-$pubcard-edge       : rgba($info-color, 0.6);
+/* Two-tone, as the reference card is: a warm rail and border against a
+   cool header band, so each card carries two hues instead of one.
+   The rail is solid and takes dark text rather than white — white on this
+   amber measures 2.28:1, the dark ink 5.24:1. Border and band stay alpha
+   washes so they hold on either theme ground. */
+$pubcard-rail       : $warning-color;
+$pubcard-rail-ink   : $darker-gray;
+$pubcard-edge       : rgba($warning-color, 0.75);
 $pubcard-head       : rgba($info-color, 0.16);
-$pubcard-rail-width : 30px;
+/* Wide enough for the enlarged bold DOI set vertically. */
+$pubcard-rail-width : 36px;
 
 .pubcard {
   display: grid;
@@ -34,15 +37,16 @@ $pubcard-rail-width : 30px;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   font-family: $monospace;
-  font-size: 0.66em;
-  letter-spacing: 0.03em;
+  font-size: 0.82em;
+  font-weight: bold;
+  letter-spacing: 0.02em;
   white-space: nowrap;
-  color: #fff;
+  color: $pubcard-rail-ink;
   text-decoration: none;
 
   &:hover,
   &:focus {
-    color: #fff;
+    color: $pubcard-rail-ink;
     text-decoration: underline;
   }
 }
