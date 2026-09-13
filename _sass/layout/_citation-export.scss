@@ -69,15 +69,20 @@ $citation-endnote-color     : $danger-color;
     text-decoration: none;
   }
 
+  /* 16% keeps the amber warm while clearing the 3:1 contrast an icon needs
+     against the page; at 12% it measured 2.93:1. */
   &[data-cite-format="bibtex"] {
-    @include citation-export-colour($citation-bibtex-color, 12%);
+    @include citation-export-colour($citation-bibtex-color, 16%);
   }
 
   &[data-cite-format="ris"] {
     @include citation-export-colour($citation-ris-color, 28%);
   }
 
+  /* Barely darkened: this red is light enough that mixing much black into
+     it reads brown rather than red at icon size, and an icon only needs
+     3:1 contrast, not the 4.5:1 of body text. */
   &[data-cite-format="endnote"] {
-    @include citation-export-colour($citation-endnote-color, 22%);
+    @include citation-export-colour($citation-endnote-color, 10%);
   }
 }
