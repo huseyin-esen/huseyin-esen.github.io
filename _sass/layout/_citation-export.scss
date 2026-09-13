@@ -8,6 +8,7 @@
 /* Drawn from the site palette in theme/_default.scss. */
 $citation-bibtex-color      : $warning-color;
 $citation-ris-color         : $success-color;
+$citation-endnote-color     : $danger-color;
 
 /* The tints use alpha so they sit correctly on either theme background,
    and the icon carries a solid, saturated version of the same hue.
@@ -74,5 +75,9 @@ $citation-ris-color         : $success-color;
 
   &[data-cite-format="ris"] {
     @include citation-export-colour($citation-ris-color, 28%);
+  }
+
+  &[data-cite-format="endnote"] {
+    @include citation-export-colour($citation-endnote-color, 22%);
   }
 }

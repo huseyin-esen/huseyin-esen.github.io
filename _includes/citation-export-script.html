@@ -10,6 +10,7 @@
         key: el.getAttribute('data-cite-key') || 'citation',
         bibtype: el.getAttribute('data-cite-bibtype') || 'article',
         ristype: el.getAttribute('data-cite-ristype') || 'JOUR',
+        entype: el.getAttribute('data-cite-entype') || 'Journal Article',
         title: el.getAttribute('data-cite-title') || '',
         authors: authors ? authors.split(';') : [],
         year: el.getAttribute('data-cite-year') || '',
@@ -92,9 +93,41 @@
       return lines.join('\r\n') + '\r\n';
     }
 
+    /* EndNote's own tagged ("refer") format, what publishers hand out as
+       Export citation > EndNote. EndNote reads RIS too, but this is the
+       format its import dialog expects by default. */
+    function endnote(d) {
+      var lines = ['%0 ' + d.entype];
+      function field(tag, value) {
+        if (value) lines.push('%' + tag + ' ' + value);
+      }
+
+      d.authors.forEach(function (author) {
+        field('A', author);
+      });
+      field('T', d.title);
+      /* %J is the journal name; a chapter or paper names its host volume
+         with %B, the secondary title. */
+      if (d.entype === 'Journal Article') {
+        field('J', d.venue);
+      } else {
+        field('B', d.venue);
+      }
+      field('I', d.publisher);
+      field('D', d.year);
+      field('V', d.volume);
+      field('N', d.issue);
+      field('P', d.pages);
+      field('R', d.doi);
+      field('U', d.url);
+
+      return lines.join('\r\n') + '\r\n';
+    }
+
     var FORMATS = {
       bibtex: { build: bibtex, ext: 'bib', mime: 'application/x-bibtex;charset=utf-8' },
-      ris: { build: ris, ext: 'ris', mime: 'application/x-research-info-systems;charset=utf-8' }
+      ris: { build: ris, ext: 'ris', mime: 'application/x-research-info-systems;charset=utf-8' },
+      endnote: { build: endnote, ext: 'enw', mime: 'application/x-endnote-refer;charset=utf-8' }
     };
 
     function download(text, filename, mime) {

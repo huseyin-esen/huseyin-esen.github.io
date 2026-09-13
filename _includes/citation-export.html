@@ -12,12 +12,15 @@
   {% when 'books' %}
     {% assign cite_bibtype = 'incollection' %}
     {% assign cite_ristype = 'CHAP' %}
+    {% assign cite_entype = 'Book Section' %}
   {% when 'conferences' %}
     {% assign cite_bibtype = 'inproceedings' %}
     {% assign cite_ristype = 'CONF' %}
+    {% assign cite_entype = 'Conference Paper' %}
   {% else %}
     {% assign cite_bibtype = 'article' %}
     {% assign cite_ristype = 'JOUR' %}
+    {% assign cite_entype = 'Journal Article' %}
 {% endcase %}
 
 {% if cite.permalink %}
@@ -37,6 +40,7 @@
       data-cite-key="{{ cite_key | escape }}"
       data-cite-bibtype="{{ cite_bibtype }}"
       data-cite-ristype="{{ cite_ristype }}"
+      data-cite-entype="{{ cite_entype }}"
       data-cite-title="{{ cite.title | escape }}"
       data-cite-authors="{{ cite.authors | join: ';' | escape }}"
       data-cite-year="{{ cite.date | date: '%Y' }}"
@@ -54,5 +58,9 @@
   <button type="button" class="citation-export__btn" data-cite-format="ris"
           title="Download this citation as a RIS (.ris) file">
     <i class="fa fa-download" aria-hidden="true"></i> RIS
+  </button>
+  <button type="button" class="citation-export__btn" data-cite-format="endnote"
+          title="Download this citation as an EndNote (.enw) file">
+    <i class="fa fa-download" aria-hidden="true"></i> EndNote
   </button>
 </span>
