@@ -4,10 +4,17 @@ collection: publications
 category: manuscripts
 permalink: /publication/bitkisel-yaglardan-polimerizasyon
 excerpt: 'Synthesis of a polymerizable monomer from plant oils and investigation of its photopolymerization behavior.'
-date: 2021-01-01
+date: 2021-03-01
 authors:
   - "Esen, H."
 venue: 'Journal of the Institute of Science and Technology'
+volume: 11
+issue: 1
+pages: '393-401'
+doi: '10.21597/jist.746693'
+# Text-dense figure, so a 900px copy is displayed and a 1800px one is linked.
+graphical_abstract: 'plant-oil-graphical-abstract.png'
+graphical_abstract_full: 'plant-oil-graphical-abstract-full.png'
 # The paper is in Turkish, so its abstract is too. Transcribed verbatim.
 abstract: >-
   Bu çalışmada ilk olarak epoksitlenmiş soya yağı, çift bağ içeren bir alkol
@@ -33,5 +40,5 @@ abstract: >-
   malzeme örneklerinin kimyasal, mekanik ve termal özellikleri
   karşılaştırılmıştır.
 paperurl: 'https://dergipark.org.tr/en/pub/jist/article/746693'
-citation: 'Esen, H. (2021). &quot;Bitkisel Yağlardan Polimerize Olabilen Monomerin Sentezi ve Fotopolimerleşmesi.&quot; <i>Journal of the Institute of Science and Technology</i>.'
+citation: 'Esen, H. (2021). &quot;Bitkisel Yağlardan Polimerize Olabilen Monomerin Sentezi ve Fotopolimerleşmesi.&quot; <i>Journal of the Institute of Science and Technology</i>, 11(1), 393-401. DOI: 10.21597/jist.746693'
 ---

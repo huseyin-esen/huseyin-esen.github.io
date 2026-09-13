@@ -62,9 +62,31 @@
     <div class="pubcard__body">
 
       {% if post.graphical_abstract %}
+        {% if post.graphical_abstract contains '://' %}
+          {% assign ga_src = post.graphical_abstract %}
+        {% else %}
+          {% assign ga_src = post.graphical_abstract | prepend: '/images/' | prepend: base_path %}
+        {% endif %}
+
+        {% comment %}
+          A dense figure is a thumbnail at this size, so it always links to a
+          larger copy: graphical_abstract_full when one is supplied, otherwise
+          the displayed image itself.
+        {% endcomment %}
+        {% if post.graphical_abstract_full %}
+          {% if post.graphical_abstract_full contains '://' %}
+            {% assign ga_full = post.graphical_abstract_full %}
+          {% else %}
+            {% assign ga_full = post.graphical_abstract_full | prepend: '/images/' | prepend: base_path %}
+          {% endif %}
+        {% else %}
+          {% assign ga_full = ga_src %}
+        {% endif %}
+
         <figure class="pubcard__fig{% if post.graphical_abstract_wide %} pubcard__fig--wide{% endif %}">
-          <img src="{% if post.graphical_abstract contains '://' %}{{ post.graphical_abstract }}{% else %}{{ post.graphical_abstract | prepend: '/images/' | prepend: base_path }}{% endif %}"
-               alt="Graphical abstract for {{ post.title | escape }}">
+          <a href="{{ ga_full }}" title="Open the graphical abstract at full size">
+            <img src="{{ ga_src }}" alt="Graphical abstract for {{ post.title | escape }}">
+          </a>
         </figure>
       {% endif %}
 

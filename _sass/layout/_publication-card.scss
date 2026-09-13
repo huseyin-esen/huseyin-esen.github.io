@@ -105,6 +105,13 @@ $pubcard-rail-width : 36px;
   width: 44%;
   margin: 0.15em 1.15em 0.6em 0;
 
+  /* The figure links to a larger copy; the theme already lifts an image
+     inside an archive link on hover, this just names the gesture. */
+  a {
+    display: block;
+    cursor: zoom-in;
+  }
+
   img {
     display: block;
     width: 100%;
