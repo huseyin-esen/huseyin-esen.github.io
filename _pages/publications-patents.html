@@ -12,20 +12,22 @@ redirect_from:
 {% include publication-tabs.html active="patents" %}
 
 {% comment %}
-  Mirrors the markup of archive-single.html so a patent reads the same as a
-  publication: the title as an archive item title, a line of secondary
-  detail beneath it, then the description. The title is not a link because
-  a patent has no page of its own. Content lives in _data/patents.yml.
+  Matches the journal article format from archive-single.html: the title is
+  a linked archive item title pointing at the patent's own page, so it
+  carries the same link colour and weight, with the Turkish title on the
+  line the venue occupies there and the description as the excerpt.
 {% endcomment %}
-{% for patent in site.data.patents %}
+{% for patent in site.patents %}
   <div class="list__item">
     <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      <h2 class="archive__item-title" itemprop="headline">{{ patent.title }}</h2>
+      <h2 class="archive__item-title" itemprop="headline">
+        <a href="{{ base_path }}{{ patent.url }}" rel="permalink">{{ patent.title }}</a>
+      </h2>
       {% if patent.title_tr %}
         <p><i>{{ patent.title_tr }}</i></p>
       {% endif %}
-      {% if patent.description %}
-        <p class="archive__item-excerpt" itemprop="description">{{ patent.description }}</p>
+      {% if patent.excerpt %}
+        <p class="archive__item-excerpt" itemprop="description">{{ patent.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}</p>
       {% endif %}
     </article>
   </div>
