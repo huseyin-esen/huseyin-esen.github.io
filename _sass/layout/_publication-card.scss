@@ -102,19 +102,21 @@ $pubcard-rail-width : 36px;
      float, so it goes back to a plain block. */
   display: block;
   float: left;
-  width: 44%;
+  /* max-width, not width, so a figure smaller than the track renders at its
+     own size instead of being upscaled into blur. A publisher-sized figure
+     still fills the 44%. */
+  width: auto;
+  max-width: 44%;
   margin: 0.15em 1.15em 0.6em 0;
 
-  /* The figure links to a larger copy; the theme already lifts an image
-     inside an archive link on hover, this just names the gesture. */
   a {
     display: block;
-    cursor: zoom-in;
   }
 
   img {
     display: block;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     height: auto;
     /* The theme adds margin-bottom to any figure img; not wanted here. */
     margin-bottom: 0;
@@ -123,12 +125,17 @@ $pubcard-rail-width : 36px;
   }
 }
 
+/* Only a figure that actually has a larger copy behind it invites a zoom. */
+.pubcard__body .pubcard__fig--zoom a {
+  cursor: zoom-in;
+}
+
 /* A banner-shaped figure keeps the top-left placement but needs more width
    than a squarer one: at 44% a 2.5:1 figure renders its own labels around
    six pixels tall. Set graphical_abstract_wide in the publication's front
    matter to give it this wider track. */
 .pubcard__body .pubcard__fig--wide {
-  width: 55%;
+  max-width: 55%;
 }
 
 .pubcard__abstract {
@@ -169,7 +176,8 @@ $pubcard-rail-width : 36px;
   .pubcard__body .pubcard__fig,
   .pubcard__body .pubcard__fig--wide {
     float: none;
-    width: 100%;
+    /* max-width again, so a small figure is not stretched on a phone. */
+    max-width: 100%;
     margin: 0 0 0.8em;
   }
 

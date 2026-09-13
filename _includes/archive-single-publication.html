@@ -83,7 +83,7 @@
           {% assign ga_full = ga_src %}
         {% endif %}
 
-        <figure class="pubcard__fig{% if post.graphical_abstract_wide %} pubcard__fig--wide{% endif %}">
+        <figure class="pubcard__fig{% if post.graphical_abstract_wide %} pubcard__fig--wide{% endif %}{% if post.graphical_abstract_full %} pubcard__fig--zoom{% endif %}">
           <a href="{{ ga_full }}" title="Open the graphical abstract at full size">
             <img src="{{ ga_src }}" alt="Graphical abstract for {{ post.title | escape }}">
           </a>
