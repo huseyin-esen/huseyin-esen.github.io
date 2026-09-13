@@ -94,7 +94,13 @@ $pubcard-rail-width : 36px;
   padding: 1em 1.25em 1.1em;
 }
 
-.pubcard__fig {
+/* Scoped through .pubcard__body so it outranks the theme's own element-level
+   figure rules without needing !important. */
+.pubcard__body .pubcard__fig {
+  /* The theme sets figure to display:flex with space-between and wrap, for
+     its multi-image galleries. This figure holds one image and needs to
+     float, so it goes back to a plain block. */
+  display: block;
   float: left;
   width: 44%;
   margin: 0.15em 1.15em 0.6em 0;
@@ -103,6 +109,8 @@ $pubcard-rail-width : 36px;
     display: block;
     width: 100%;
     height: auto;
+    /* The theme adds margin-bottom to any figure img; not wanted here. */
+    margin-bottom: 0;
     border: 1px solid var(--global-border-color);
     border-radius: $border-radius;
   }
@@ -112,7 +120,7 @@ $pubcard-rail-width : 36px;
    than a squarer one: at 44% a 2.5:1 figure renders its own labels around
    six pixels tall. Set graphical_abstract_wide in the publication's front
    matter to give it this wider track. */
-.pubcard__fig--wide {
+.pubcard__body .pubcard__fig--wide {
   width: 55%;
 }
 
@@ -147,9 +155,12 @@ $pubcard-rail-width : 36px;
 }
 
 /* The float and justified text stop earning their keep once the column is
-   narrow enough that the image would leave a few words per line. */
-@include breakpoint(max-width 37.5em) {
-  .pubcard__fig {
+   narrow enough that the image would leave a few words per line. Set at
+   30em rather than 37.5em so the corner placement survives medium-narrow
+   windows and only real phone widths stack. */
+@include breakpoint(max-width 30em) {
+  .pubcard__body .pubcard__fig,
+  .pubcard__body .pubcard__fig--wide {
     float: none;
     width: 100%;
     margin: 0 0 0.8em;
