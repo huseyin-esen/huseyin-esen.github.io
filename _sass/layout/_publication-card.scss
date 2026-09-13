@@ -1,0 +1,147 @@
+/* ==========================================================================
+   PUBLICATION CARD
+   Journal-style graphical abstract card for the Publications list pages.
+   A rail down the left carries the DOI vertically, the header names the
+   work, and the graphical abstract floats beside the abstract text.
+   ========================================================================== */
+
+/* Alpha washes rather than fixed colours, so the card holds on either
+   theme ground. */
+$pubcard-rail       : $info-color;
+$pubcard-edge       : rgba($info-color, 0.28);
+$pubcard-head       : rgba($info-color, 0.07);
+$pubcard-rail-width : 30px;
+
+.pubcard {
+  display: grid;
+  grid-template-columns: $pubcard-rail-width 1fr;
+  margin-bottom: 1.75em;
+  border: 2px solid $pubcard-edge;
+  border-radius: $border-radius;
+  overflow: hidden;
+}
+
+.pubcard__rail {
+  display: grid;
+  place-items: center;
+  padding-block: 0.75em;
+  background: $pubcard-rail;
+}
+
+.pubcard__doi {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: $monospace;
+  font-size: 0.66em;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  color: #fff;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+
+.pubcard__head {
+  padding: 0.85em 1.25em;
+  background: $pubcard-head;
+  border-bottom: 2px solid $pubcard-edge;
+  text-align: center;
+}
+
+.pubcard__title {
+  margin: 0 0 0.35em;
+  font-family: $sans-serif-narrow;
+  font-size: 1.05em;
+  font-style: italic;
+  font-weight: normal;
+  line-height: 1.35;
+  text-wrap: balance;
+
+  /* The archive link underline would fight the italic title. */
+  a {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+.pubcard__authors {
+  margin: 0 0 0.2em;
+  font-size: $type-size-6;
+  color: var(--global-text-color);
+}
+
+.pubcard__venue {
+  margin: 0;
+  font-size: $type-size-6;
+  font-weight: bold;
+}
+
+.pubcard__body {
+  padding: 1em 1.25em 1.1em;
+}
+
+.pubcard__fig {
+  float: left;
+  width: 44%;
+  margin: 0.15em 1.15em 0.6em 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--global-border-color);
+    border-radius: $border-radius;
+  }
+}
+
+.pubcard__abstract {
+  margin: 0;
+  font-size: $type-size-6;
+  line-height: 1.55;
+  text-align: justify;
+  hyphens: auto;
+
+  b {
+    margin-right: 0.4em;
+    font-size: 1.45em;
+    font-weight: bold;
+  }
+}
+
+.pubcard__foot {
+  /* Clears the floated figure so the actions never ride up beside it. */
+  clear: both;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6em;
+  margin-top: 1em;
+  padding-top: 0.7em;
+  border-top: 1px solid var(--global-border-color);
+}
+
+.pubcard__paper {
+  font-size: $type-size-6;
+}
+
+/* The float and justified text stop earning their keep once the column is
+   narrow enough that the image would leave a few words per line. */
+@include breakpoint(max-width 37.5em) {
+  .pubcard__fig {
+    float: none;
+    width: 100%;
+    margin: 0 0 0.8em;
+  }
+
+  .pubcard__abstract {
+    text-align: left;
+  }
+}

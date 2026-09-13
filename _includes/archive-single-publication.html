@@ -1,0 +1,86 @@
+{% comment %}
+  Graphical abstract card for one publication, used by the Publications
+  list pages. Layout follows the journal-style card: a coloured rail
+  carrying the DOI vertically, a centred header with the title, authors and
+  venue, then the graphical abstract floated beside the abstract text.
+
+  Front matter it reads, all optional beyond title:
+    authors            list of "Surname, Initials" strings
+    venue, volume, issue, pages, date, doi, paperurl
+    graphical_abstract filename in /images/, or a full URL
+    abstract           the journal abstract; falls back to excerpt
+
+  The card degrades rather than breaks: with no image the text runs full
+  width, with no abstract the excerpt stands in, with no DOI the rail is
+  left empty.
+{% endcomment %}
+
+{% include base_path %}
+
+{% if post.abstract %}
+  {% assign card_abstract = post.abstract %}
+{% else %}
+  {% assign card_abstract = post.excerpt %}
+{% endif %}
+
+<article class="pubcard">
+
+  <div class="pubcard__rail">
+    {% if post.doi %}
+      <a class="pubcard__doi" href="https://doi.org/{{ post.doi }}">doi.org/{{ post.doi }}</a>
+    {% endif %}
+  </div>
+
+  <div class="pubcard__main">
+
+    <header class="pubcard__head">
+      <h2 class="pubcard__title" itemprop="headline">
+        <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ post.title }}</a>
+      </h2>
+
+      {% if post.authors %}
+        <p class="pubcard__authors">
+          {%- for author in post.authors -%}
+            {%- assign name_parts = author | split: ", " -%}
+            {%- if name_parts.size > 1 -%}
+              {{ name_parts[1] }} {{ name_parts[0] }}
+            {%- else -%}
+              {{ author }}
+            {%- endif -%}
+            {%- unless forloop.last %}, {% endunless -%}
+          {%- endfor -%}
+        </p>
+      {% endif %}
+
+      {% if post.venue %}
+        <p class="pubcard__venue">
+          <i>{{ post.venue }}</i>{% if post.volume %}, {{ post.volume }}{% if post.issue %}({{ post.issue }}){% endif %}{% endif %}{% if post.pages %}, {{ post.pages }}{% endif %}{% if post.date %}, {{ post.date | date: "%Y" }}{% endif %}
+        </p>
+      {% endif %}
+    </header>
+
+    <div class="pubcard__body">
+
+      {% if post.graphical_abstract %}
+        <figure class="pubcard__fig">
+          <img src="{% if post.graphical_abstract contains '://' %}{{ post.graphical_abstract }}{% else %}{{ post.graphical_abstract | prepend: '/images/' | prepend: base_path }}{% endif %}"
+               alt="Graphical abstract for {{ post.title | escape }}">
+        </figure>
+      {% endif %}
+
+      {% if card_abstract %}
+        <p class="pubcard__abstract" itemprop="description">
+          <b>Abstract</b> {{ card_abstract | markdownify | remove: '<p>' | remove: '</p>' }}
+        </p>
+      {% endif %}
+
+      <div class="pubcard__foot">
+        {% if post.paperurl and post.paperurl != '' %}
+          <a class="pubcard__paper" href="{{ post.paperurl }}">Download Paper</a>
+        {% endif %}
+        {% include citation-export.html item=post %}
+      </div>
+
+    </div>
+  </div>
+</article>

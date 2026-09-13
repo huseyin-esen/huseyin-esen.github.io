@@ -10,5 +10,5 @@ author_profile: true
 
 {% assign cat_posts = site.publications | where: "category", "books" | sort: "date" | reverse %}
 {% for post in cat_posts %}
-  {% include archive-single.html %}
+  {% include archive-single-publication.html %}
 {% endfor %}
