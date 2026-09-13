@@ -1,0 +1,32 @@
+---
+layout: archive
+title: "Publications"
+permalink: /publications/patents/
+author_profile: true
+redirect_from:
+  - /patents/
+  - /patents.html
+---
+
+{% include base_path %}
+{% include publication-tabs.html active="patents" %}
+
+{% comment %}
+  Mirrors the markup of archive-single.html so a patent reads the same as a
+  publication: the title as an archive item title, a line of secondary
+  detail beneath it, then the description. The title is not a link because
+  a patent has no page of its own. Content lives in _data/patents.yml.
+{% endcomment %}
+{% for patent in site.data.patents %}
+  <div class="list__item">
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      <h2 class="archive__item-title" itemprop="headline">{{ patent.title }}</h2>
+      {% if patent.title_tr %}
+        <p><i>{{ patent.title_tr }}</i></p>
+      {% endif %}
+      {% if patent.description %}
+        <p class="archive__item-excerpt" itemprop="description">{{ patent.description }}</p>
+      {% endif %}
+    </article>
+  </div>
+{% endfor %}
