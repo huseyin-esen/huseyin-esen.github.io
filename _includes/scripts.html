@@ -1,3 +1,34 @@
 <script src="{{ base_path }}/assets/js/main.min.js"></script>
 
+<script>
+  /* Open links that leave this site in a new tab, so visitors keep the page
+     they came from. Applies site-wide, including links written in Markdown.
+     Same-host links, in-page anchors, mailto: and tel: are left alone, as is
+     any link that already sets its own target. */
+  (function () {
+    function markExternalLinks() {
+      var links = document.getElementsByTagName('a');
+      for (var i = 0; i < links.length; i++) {
+        var link = links[i];
+        if (link.getAttribute('target')) continue;
+        if (link.protocol !== 'http:' && link.protocol !== 'https:') continue;
+        if (link.hostname === window.location.hostname) continue;
+
+        link.setAttribute('target', '_blank');
+
+        var rel = link.getAttribute('rel') || '';
+        if (rel.indexOf('noopener') === -1) rel += ' noopener';
+        if (rel.indexOf('noreferrer') === -1) rel += ' noreferrer';
+        link.setAttribute('rel', rel.replace(/\s+/g, ' ').trim());
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', markExternalLinks);
+    } else {
+      markExternalLinks();
+    }
+  })();
+</script>
+
 {% include analytics.html %}
