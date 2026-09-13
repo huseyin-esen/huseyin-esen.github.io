@@ -1,11 +1,14 @@
 {% comment %}
   Section switcher for the Publications pages. Each section is a real page of
   its own, so switching loads a fresh page at the top instead of swapping
-  content in place. Pass the active category, e.g.:
+  content in place. A section only gets a link once it has entries, so an
+  empty category never shows an empty page. Pass the active category, e.g.:
     {% include publication-tabs.html active="books" %}
 {% endcomment %}
 
 {% include base_path %}
+
+{% assign tab_categories = "manuscripts,books,conferences" | split: "," %}
 
 <style>
   .pub-tabs__nav {
@@ -42,10 +45,20 @@
 </style>
 
 <nav class="pub-tabs__nav" aria-label="Publication types">
-  <a class="pub-tabs__tab{% if include.active == 'manuscripts' %} is-active{% endif %}"
-     href="{{ base_path }}/publications/"
-     {% if include.active == 'manuscripts' %}aria-current="page"{% endif %}>{{ site.publication_category.manuscripts.title | default: "Journal Articles" }}</a>
-  <a class="pub-tabs__tab{% if include.active == 'books' %} is-active{% endif %}"
-     href="{{ base_path }}/publications/books/"
-     {% if include.active == 'books' %}aria-current="page"{% endif %}>{{ site.publication_category.books.title | default: "Books" }}</a>
+  {% for cat in tab_categories %}
+    {% assign cat_posts = site.publications | where: "category", cat %}
+    {% if cat_posts.size > 0 %}
+      {% case cat %}
+        {% when 'books' %}
+          {% assign cat_url = '/publications/books/' %}
+        {% when 'conferences' %}
+          {% assign cat_url = '/publications/conferences/' %}
+        {% else %}
+          {% assign cat_url = '/publications/' %}
+      {% endcase %}
+      <a class="pub-tabs__tab{% if include.active == cat %} is-active{% endif %}"
+         href="{{ base_path }}{{ cat_url }}"
+         {% if include.active == cat %}aria-current="page"{% endif %}>{{ site.publication_category[cat].title }}</a>
+    {% endif %}
+  {% endfor %}
 </nav>

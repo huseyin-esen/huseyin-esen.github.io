@@ -1,0 +1,14 @@
+---
+layout: archive
+title: "Publications"
+permalink: /publications/conferences/
+author_profile: true
+---
+
+{% include base_path %}
+{% include publication-tabs.html active="conferences" %}
+
+{% assign cat_posts = site.publications | where: "category", "conferences" | sort: "date" | reverse %}
+{% for post in cat_posts %}
+  {% include archive-single.html %}
+{% endfor %}
