@@ -171,6 +171,7 @@ exclude:
   - CHANGELOG
   - Capfile
   - config
+  - docs # working notes, not part of the published site
   - Dockerfile
   - Gemfile
   - Gruntfile.js
