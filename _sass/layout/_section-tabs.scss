@@ -1,0 +1,41 @@
+/* ==========================================================================
+   SECTION TABS
+   The row of links that switches between the pages of a section, used by
+   the Publications and Conferences switchers. Each tab is a real link to a
+   real page, so the row marks the current page rather than toggling
+   content in place.
+   ========================================================================== */
+
+.section-tabs__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em 1.5em;
+  align-items: flex-end;
+  margin: 1.5em 0 0;
+  border-bottom: 1px solid var(--global-border-color);
+}
+
+.section-tabs__tab {
+  display: inline-block;
+  padding: 0.3em 0 0.5em;
+  /* Pulls the tab's own border onto the nav's, so the active tab reads as
+     joined to the page below it. */
+  margin-bottom: -1px;
+  border-bottom: 3px solid transparent;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: var(--global-text-color-light);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: var(--global-link-color-hover);
+    text-decoration: none;
+  }
+
+  &.is-active {
+    color: var(--global-text-color);
+    border-bottom-color: var(--global-link-color);
+  }
+}

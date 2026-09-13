@@ -1,8 +1,9 @@
 {% comment %}
   Section switcher for the Publications pages. Each section is a real page of
   its own, so switching loads a fresh page at the top instead of swapping
-  content in place. A section only gets a link once it has entries, so an
-  empty category never shows an empty page. Pass the active category, e.g.:
+  content in place. A category only gets a link once it has entries, so an
+  empty one never shows an empty page. Styling lives in
+  _sass/layout/_section-tabs.scss. Pass the active category, e.g.:
     {% include publication-tabs.html active="books" %}
 {% endcomment %}
 
@@ -10,41 +11,7 @@
 
 {% assign tab_categories = "manuscripts,books,conferences" | split: "," %}
 
-<style>
-  .pub-tabs__nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5em 1.5em;
-    align-items: flex-end;
-    margin: 1.5em 0 0;
-    border-bottom: 1px solid var(--global-border-color);
-  }
-
-  .pub-tabs__tab {
-    display: inline-block;
-    padding: 0.3em 0 0.5em;
-    margin-bottom: -1px;
-    border-bottom: 3px solid transparent;
-    font-size: 1.1em;
-    font-weight: bold;
-    color: var(--global-text-color-light);
-    text-decoration: none;
-    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-  }
-
-  .pub-tabs__tab:hover,
-  .pub-tabs__tab:focus {
-    color: var(--global-link-color-hover);
-    text-decoration: none;
-  }
-
-  .pub-tabs__tab.is-active {
-    color: var(--global-text-color);
-    border-bottom-color: var(--global-link-color);
-  }
-</style>
-
-<nav class="pub-tabs__nav" aria-label="Publication types">
+<nav class="section-tabs__nav" aria-label="Publication types">
   {% for cat in tab_categories %}
     {% assign cat_posts = site.publications | where: "category", cat %}
     {% if cat_posts.size > 0 %}
@@ -56,7 +23,7 @@
         {% else %}
           {% assign cat_url = '/publications/' %}
       {% endcase %}
-      <a class="pub-tabs__tab{% if include.active == cat %} is-active{% endif %}"
+      <a class="section-tabs__tab{% if include.active == cat %} is-active{% endif %}"
          href="{{ base_path }}{{ cat_url }}"
          {% if include.active == cat %}aria-current="page"{% endif %}>{{ site.publication_category[cat].title }}</a>
     {% endif %}
@@ -64,10 +31,9 @@
 
   {% comment %}
     Patents sit in the same switcher but are not part of the publications
-    collection: they have no journal, DOI or volume, so they stay a written
-    page rather than collection entries.
+    collection, so they get an unconditional link rather than a count.
   {% endcomment %}
-  <a class="pub-tabs__tab{% if include.active == 'patents' %} is-active{% endif %}"
+  <a class="section-tabs__tab{% if include.active == 'patents' %} is-active{% endif %}"
      href="{{ base_path }}/publications/patents/"
      {% if include.active == 'patents' %}aria-current="page"{% endif %}>Patents</a>
 </nav>

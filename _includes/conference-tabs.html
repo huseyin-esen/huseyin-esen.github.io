@@ -1,0 +1,20 @@
+{% comment %}
+  Section switcher for the Conferences pages. Both links point at real
+  pages, so Posters opens at the top of its own page rather than as a
+  section further down. Unlike the publications switcher, Posters is shown
+  even while empty: it is a standing section of the site, not a category
+  that appears once it has content. Styling lives in
+  _sass/layout/_section-tabs.scss. Pass the active section, e.g.:
+    {% include conference-tabs.html active="posters" %}
+{% endcomment %}
+
+{% include base_path %}
+
+<nav class="section-tabs__nav" aria-label="Conference contribution types">
+  <a class="section-tabs__tab{% if include.active == 'talks' %} is-active{% endif %}"
+     href="{{ base_path }}/conferences/"
+     {% if include.active == 'talks' %}aria-current="page"{% endif %}>Talks</a>
+  <a class="section-tabs__tab{% if include.active == 'posters' %} is-active{% endif %}"
+     href="{{ base_path }}/conferences/posters/"
+     {% if include.active == 'posters' %}aria-current="page"{% endif %}>Posters</a>
+</nav>

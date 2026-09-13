@@ -1,0 +1,15 @@
+---
+layout: archive
+title: "Conferences"
+permalink: /conferences/posters/
+author_profile: true
+---
+
+{% include base_path %}
+{% include conference-tabs.html active="posters" %}
+
+{% assign poster_items = site.talks | where: "category", "posters" | sort: "date" | reverse %}
+
+{% for post in poster_items %}
+  {% include archive-single-talk.html %}
+{% endfor %}
