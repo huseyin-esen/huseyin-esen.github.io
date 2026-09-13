@@ -1,0 +1,58 @@
+{% comment %}
+  Renders "BibTeX" / "RIS" download buttons for one publication. The citation
+  data is emitted as data attributes and turned into a file by the script in
+  citation-export-script.html. Usage:
+    {% include citation-export.html item=post %}
+{% endcomment %}
+
+{% include base_path %}
+{% assign cite = include.item %}
+
+{% case cite.category %}
+  {% when 'books' %}
+    {% assign cite_bibtype = 'incollection' %}
+    {% assign cite_ristype = 'CHAP' %}
+  {% when 'conferences' %}
+    {% assign cite_bibtype = 'inproceedings' %}
+    {% assign cite_ristype = 'CONF' %}
+  {% else %}
+    {% assign cite_bibtype = 'article' %}
+    {% assign cite_ristype = 'JOUR' %}
+{% endcase %}
+
+{% if cite.permalink %}
+  {% assign cite_key = cite.permalink | split: "/" | last %}
+{% else %}
+  {% assign cite_key = cite.title | slugify %}
+{% endif %}
+
+{% if cite.paperurl and cite.paperurl != '' %}
+  {% assign cite_url = cite.paperurl %}
+{% else %}
+  {% assign cite_url = cite.url | prepend: base_path %}
+{% endif %}
+
+<span class="citation-export"
+      data-citation-export
+      data-cite-key="{{ cite_key | escape }}"
+      data-cite-bibtype="{{ cite_bibtype }}"
+      data-cite-ristype="{{ cite_ristype }}"
+      data-cite-title="{{ cite.title | escape }}"
+      data-cite-authors="{{ cite.authors | join: ';' | escape }}"
+      data-cite-year="{{ cite.date | date: '%Y' }}"
+      data-cite-venue="{{ cite.venue | escape }}"
+      data-cite-volume="{{ cite.volume | escape }}"
+      data-cite-issue="{{ cite.issue | escape }}"
+      data-cite-pages="{{ cite.pages | escape }}"
+      data-cite-doi="{{ cite.doi | escape }}"
+      data-cite-publisher="{{ cite.publisher | escape }}"
+      data-cite-url="{{ cite_url | escape }}">
+  <button type="button" class="citation-export__btn" data-cite-format="bibtex"
+          title="Download this citation as a BibTeX (.bib) file">
+    <i class="fa fa-download" aria-hidden="true"></i> BibTeX
+  </button>
+  <button type="button" class="citation-export__btn" data-cite-format="ris"
+          title="Download this citation as a RIS (.ris) file">
+    <i class="fa fa-download" aria-hidden="true"></i> RIS
+  </button>
+</span>

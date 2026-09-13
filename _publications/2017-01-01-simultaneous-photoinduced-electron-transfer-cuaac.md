@@ -5,6 +5,11 @@ category: manuscripts
 permalink: /publication/simultaneous-photoinduced-electron-transfer-cuaac
 excerpt: 'Investigation of simultaneous photoinduced electron transfer and CuAAC click chemistry processes for the preparation of antibacterial thermoset materials.'
 date: 2017-01-01
+authors:
+  - "Oz, E."
+  - "Uyar, T."
+  - "Esen, H."
+  - "Tasdelen, M. A."
 venue: 'Progress in Organic Coatings'
 volume: 105
 pages: '252-257'

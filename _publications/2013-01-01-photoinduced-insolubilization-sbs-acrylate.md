@@ -5,6 +5,11 @@ category: manuscripts
 permalink: /publication/photoinduced-insolubilization-sbs-acrylate
 excerpt: 'Study on the photoinduced insolubilization behavior of SBS-acrylate films of high thickness using 405 nm irradiation.'
 date: 2013-01-01
+authors:
+  - "Belon, C."
+  - "Esen, H."
+  - "Croutxé-Barghorn, C."
+  - "Allonas, X."
 venue: 'Progress in Organic Coatings'
 volume: 76
 issue: 1

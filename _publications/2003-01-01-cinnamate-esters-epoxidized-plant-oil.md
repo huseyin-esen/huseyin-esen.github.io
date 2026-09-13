@@ -5,6 +5,9 @@ category: manuscripts
 permalink: /publication/cinnamate-esters-epoxidized-plant-oil
 excerpt: 'Synthesis and photopolymerization of cinnamate ester monomers derived from epoxidized plant oil triglycerides.'
 date: 2003-01-01
+authors:
+  - "Esen, H."
+  - "Küsefoğlu, S. H."
 venue: 'Journal of Applied Polymer Science'
 volume: 89
 issue: 14

@@ -1,0 +1,146 @@
+<script>
+  /* Builds a BibTeX or RIS file from the data attributes emitted by
+     citation-export.html and hands it to the browser as a download.
+     Included once per page from scripts.html; no-ops when a page has no
+     citation buttons. */
+  (function () {
+    function read(el) {
+      var authors = el.getAttribute('data-cite-authors') || '';
+      return {
+        key: el.getAttribute('data-cite-key') || 'citation',
+        bibtype: el.getAttribute('data-cite-bibtype') || 'article',
+        ristype: el.getAttribute('data-cite-ristype') || 'JOUR',
+        title: el.getAttribute('data-cite-title') || '',
+        authors: authors ? authors.split(';') : [],
+        year: el.getAttribute('data-cite-year') || '',
+        venue: el.getAttribute('data-cite-venue') || '',
+        volume: el.getAttribute('data-cite-volume') || '',
+        issue: el.getAttribute('data-cite-issue') || '',
+        pages: el.getAttribute('data-cite-pages') || '',
+        doi: el.getAttribute('data-cite-doi') || '',
+        publisher: el.getAttribute('data-cite-publisher') || '',
+        url: el.getAttribute('data-cite-url') || ''
+      };
+    }
+
+    /* "252-257" -> ["252", "257"]; a single page number yields no end page. */
+    function splitPages(pages) {
+      var parts = pages.split(/\s*[-–—]+\s*/);
+      return [parts[0] || '', parts.length > 1 ? parts[parts.length - 1] : ''];
+    }
+
+    /* Characters that are markup to LaTeX, so a .bib file with an ampersand
+       in a publisher name still compiles. Never applied to DOIs or URLs,
+       where a backslash would corrupt the address. */
+    function tex(value) {
+      return value.replace(/([&%$#_])/g, '\\$1');
+    }
+
+    function bibtex(d) {
+      var lines = [];
+      function field(name, value) {
+        if (value) lines.push('  ' + name + ' = {' + value + '}');
+      }
+      function texField(name, value) {
+        if (value) field(name, tex(value));
+      }
+
+      texField('author', d.authors.join(' and '));
+      texField('title', d.title);
+      /* A journal article cites a journal; a chapter or paper cites the
+         volume it sits in. */
+      if (d.bibtype === 'article') {
+        texField('journal', d.venue);
+      } else {
+        texField('booktitle', d.venue);
+      }
+      texField('publisher', d.publisher);
+      field('year', d.year);
+      field('volume', d.volume);
+      field('number', d.issue);
+      field('pages', d.pages.replace(/\s*[-–—]+\s*/, '--'));
+      field('doi', d.doi);
+      field('url', d.url);
+
+      return '@' + d.bibtype + '{' + d.key + ',\n' + lines.join(',\n') + '\n}\n';
+    }
+
+    function ris(d) {
+      var lines = ['TY  - ' + d.ristype];
+      function field(tag, value) {
+        if (value) lines.push(tag + '  - ' + value);
+      }
+
+      d.authors.forEach(function (author) {
+        field('AU', author);
+      });
+      field('TI', d.title);
+      field('T2', d.venue);
+      field('PB', d.publisher);
+      field('PY', d.year);
+      field('VL', d.volume);
+      field('IS', d.issue);
+
+      var pages = splitPages(d.pages);
+      field('SP', pages[0]);
+      field('EP', pages[1]);
+
+      field('DO', d.doi);
+      field('UR', d.url);
+      lines.push('ER  - ');
+
+      return lines.join('\r\n') + '\r\n';
+    }
+
+    var FORMATS = {
+      bibtex: { build: bibtex, ext: 'bib', mime: 'application/x-bibtex;charset=utf-8' },
+      ris: { build: ris, ext: 'ris', mime: 'application/x-research-info-systems;charset=utf-8' }
+    };
+
+    function download(text, filename, mime) {
+      var blob = new Blob([text], { type: mime });
+      var url = URL.createObjectURL(blob);
+      var link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      /* Give the browser a moment to start the download before the blob goes. */
+      setTimeout(function () {
+        URL.revokeObjectURL(url);
+      }, 1000);
+    }
+
+    function wrapper(node) {
+      while (node && node !== document) {
+        if (node.hasAttribute && node.hasAttribute('data-citation-export')) return node;
+        node = node.parentNode;
+      }
+      return null;
+    }
+
+    document.addEventListener('click', function (event) {
+      var button = event.target;
+      while (button && button !== document && !(button.getAttribute && button.getAttribute('data-cite-format'))) {
+        button = button.parentNode;
+      }
+      if (!button || button === document) return;
+
+      var host = wrapper(button);
+      if (!host) return;
+
+      var format = FORMATS[button.getAttribute('data-cite-format')];
+      if (!format) return;
+
+      event.preventDefault();
+      var data = read(host);
+      download(format.build(data), data.key + '.' + format.ext, format.mime);
+
+      button.className = 'citation-export__btn is-done';
+      setTimeout(function () {
+        button.className = 'citation-export__btn';
+      }, 1500);
+    });
+  })();
+</script>

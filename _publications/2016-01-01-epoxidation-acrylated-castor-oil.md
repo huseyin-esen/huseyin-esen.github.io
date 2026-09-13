@@ -5,6 +5,9 @@ category: manuscripts
 permalink: /publication/epoxidation-acrylated-castor-oil
 excerpt: 'Epoxidation and photopolymerization of acrylated castor oil for bio-based polymer applications.'
 date: 2016-01-01
+authors:
+  - "Esen, H."
+  - "Çaylı, G."
 venue: 'European Journal of Lipid Science and Technology'
 volume: 118
 issue: 6

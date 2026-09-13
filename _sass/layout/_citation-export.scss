@@ -1,0 +1,45 @@
+/* ==========================================================================
+   CITATION EXPORT
+   Buttons that download a publication's citation as BibTeX or RIS.
+   ========================================================================== */
+
+.citation-export {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin-left: 0.25em;
+  vertical-align: baseline;
+}
+
+.citation-export__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.15em 0.55em;
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+  background: transparent;
+  font-family: $sans-serif;
+  font-size: $type-size-7;
+  font-weight: bold;
+  line-height: 1.6;
+  color: var(--global-link-color);
+  cursor: pointer;
+  transition: $global-transition;
+
+  &:hover,
+  &:focus {
+    border-color: var(--global-link-color);
+    color: var(--global-link-color-hover);
+  }
+
+  /* Confirms the download fired, since a saved file is easy to miss. */
+  &.is-done {
+    border-color: var(--global-link-color);
+    color: var(--global-link-color);
+  }
+
+  i {
+    font-size: 0.9em;
+  }
+}

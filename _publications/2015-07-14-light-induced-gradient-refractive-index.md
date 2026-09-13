@@ -5,6 +5,10 @@ category: manuscripts
 permalink: /publication/light-induced-gradient-refractive-index
 excerpt: 'Study on photoinduced formation of gradient refractive index polymer materials.'
 date: 2015-07-14
+authors:
+  - "Esen, H."
+  - "Croutxé-Barghorn, C."
+  - "Allonas, X."
 venue: 'Polymers for Advanced Technologies'
 volume: 27
 issue: 1

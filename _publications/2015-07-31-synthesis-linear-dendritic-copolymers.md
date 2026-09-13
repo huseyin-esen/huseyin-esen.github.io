@@ -5,6 +5,8 @@ category: manuscripts
 permalink: /publication/synthesis-linear-dendritic-copolymers
 excerpt: 'Synthesis and characterization of novel linear dendritic homo and copolymers based on acrylated behera amine.'
 date: 2015-07-31
+authors:
+  - "Esen, H."
 venue: 'Designed Monomers and Polymers'
 doi: '10.1080/15685551.2015.1070506'
 paperurl: 'https://www.tandfonline.com/doi/full/10.1080/15685551.2015.1070506'

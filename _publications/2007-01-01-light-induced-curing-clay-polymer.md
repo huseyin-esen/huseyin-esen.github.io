@@ -5,6 +5,10 @@ category: manuscripts
 permalink: /publication/light-induced-curing-clay-polymer
 excerpt: 'Investigation of photoinitiated curing behavior in clay/polymer nanocomposite systems.'
 date: 2007-01-01
+authors:
+  - "Esen, H."
+  - "Küsefoğlu, S."
+  - "Wool, R."
 venue: 'Journal of Applied Polymer Science'
 volume: 103
 issue: 1
