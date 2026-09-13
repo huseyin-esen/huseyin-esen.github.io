@@ -32,7 +32,8 @@ authors:
   - "Alanalp, M. B."
   - "Durmus, A."
 venue: 'Polymer Composites'
-# Exported from Graphical_Abstract.tif; banner-shaped, so it runs full width.
+# Exported from Graphical_Abstract.tif. Banner-shaped (2.5:1), so it takes
+# the wider of the two float tracks.
 graphical_abstract: 'lichen-pla-graphical-abstract.png'
 graphical_abstract_wide: true
 doi: '10.1002/pc.71612'
