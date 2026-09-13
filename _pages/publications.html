@@ -11,26 +11,137 @@ author_profile: true
 
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
+{% comment %}
+  Tab order is explicit so "Journal Articles" comes first and is therefore the
+  default visible tab. A category only gets a tab when it has entries.
+{% endcomment %}
+{% assign category_order = "manuscripts,books,conferences" | split: "," %}
+
+<style>
+  .pub-tabs__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em 1.5em;
+    align-items: flex-end;
+    margin: 1.5em 0 0;
+    border-bottom: 1px solid var(--global-border-color);
+  }
+
+  .pub-tabs__tab {
+    display: inline-block;
+    padding: 0.3em 0 0.5em;
+    margin-bottom: -1px;
+    border-bottom: 3px solid transparent;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--global-text-color-light);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  }
+
+  .pub-tabs__tab:hover,
+  .pub-tabs__tab:focus {
+    color: var(--global-link-color-hover);
+    text-decoration: none;
+  }
+
+  .pub-tabs__tab.is-active {
+    color: var(--global-text-color);
+    border-bottom-color: var(--global-link-color);
+  }
+
+  .pub-tabs__panel[hidden] {
+    display: none;
+  }
+</style>
+
+<div class="pub-tabs">
+  <nav class="pub-tabs__nav" role="tablist" aria-label="Publication types">
+    {% assign tab_count = 0 %}
+    {% for cat in category_order %}
+      {% assign cat_meta = site.publication_category[cat] %}
+      {% if cat_meta %}
+        {% assign cat_posts = site.publications | where: "category", cat %}
+        {% if cat_posts.size > 0 %}
+          <a class="pub-tabs__tab{% if tab_count == 0 %} is-active{% endif %}"
+             id="pub-tab-{{ cat }}"
+             href="#pub-panel-{{ cat }}"
+             role="tab"
+             aria-controls="pub-panel-{{ cat }}"
+             aria-selected="{% if tab_count == 0 %}true{% else %}false{% endif %}"
+             data-pub-tab="{{ cat }}">{{ cat_meta.title }}</a>
+          {% assign tab_count = tab_count | plus: 1 %}
+        {% endif %}
       {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
     {% endfor %}
+  </nav>
+
+  {% for cat in category_order %}
+    {% assign cat_meta = site.publication_category[cat] %}
+    {% if cat_meta %}
+      {% assign cat_posts = site.publications | where: "category", cat | sort: "date" | reverse %}
+      {% if cat_posts.size > 0 %}
+        <section class="pub-tabs__panel"
+                 id="pub-panel-{{ cat }}"
+                 role="tabpanel"
+                 aria-labelledby="pub-tab-{{ cat }}"
+                 data-pub-panel="{{ cat }}">
+          <h2 class="sr-only">{{ cat_meta.title }}</h2>
+          {% for post in cat_posts %}
+            {% include archive-single.html %}
+          {% endfor %}
+        </section>
+      {% endif %}
+    {% endif %}
   {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
+</div>
 
+<script>
+  (function () {
+    var root = document.querySelector('.pub-tabs');
+    if (!root) return;
 
+    var tabs = [].slice.call(root.querySelectorAll('[data-pub-tab]'));
+    var panels = [].slice.call(root.querySelectorAll('[data-pub-panel]'));
+    if (tabs.length < 2) return;
 
+    function activate(name, setHash) {
+      var matched = false;
+      panels.forEach(function (panel) {
+        var isMatch = panel.getAttribute('data-pub-panel') === name;
+        panel.hidden = !isMatch;
+        if (isMatch) matched = true;
+      });
+      if (!matched) return false;
+
+      tabs.forEach(function (tab) {
+        var isMatch = tab.getAttribute('data-pub-tab') === name;
+        if (isMatch) {
+          tab.className = 'pub-tabs__tab is-active';
+        } else {
+          tab.className = 'pub-tabs__tab';
+        }
+        tab.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+      });
+
+      if (setHash && window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', '#pub-panel-' + name);
+      }
+      return true;
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function (event) {
+        event.preventDefault();
+        activate(tab.getAttribute('data-pub-tab'), true);
+      });
+    });
+
+    // A deep link such as /publications/#pub-panel-books opens that tab
+    // directly; anything else falls back to the first tab (Journal Articles).
+    var fromHash = (window.location.hash || '').replace('#pub-panel-', '');
+    if (!fromHash || !activate(fromHash, false)) {
+      activate(tabs[0].getAttribute('data-pub-tab'), false);
+    }
+  })();
+</script>
