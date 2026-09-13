@@ -1,0 +1,37 @@
+---
+layout: archive
+title: "Conferences"
+permalink: /conferences/
+author_profile: true
+redirect_from:
+  - /talks/
+  - /talks.html
+---
+
+{% include base_path %}
+
+{% if site.talkmap_link == true %}
+
+<p style="text-decoration:underline;"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p>
+
+{% endif %}
+
+{% comment %}
+  An entry counts as a talk unless it opts into the poster section with
+  `category: posters` in its front matter, so existing entries need no
+  change and a new poster only has to say so.
+{% endcomment %}
+{% assign talk_items = site.talks | where_exp: "item", "item.category != 'posters'" | sort: "date" | reverse %}
+{% assign poster_items = site.talks | where: "category", "posters" | sort: "date" | reverse %}
+
+<h2>Talks</h2>
+
+{% for post in talk_items %}
+  {% include archive-single-talk.html %}
+{% endfor %}
+
+<h2>Posters</h2>
+
+{% for post in poster_items %}
+  {% include archive-single-talk.html %}
+{% endfor %}
