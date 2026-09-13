@@ -1,11 +1,15 @@
 ---
-layout: single
-title: "Patents"
-permalink: /patents/
+layout: archive
+title: "Publications"
+permalink: /publications/patents/
 author_profile: true
+redirect_from:
+  - /patents/
+  - /patents.html
 ---
 
-## Patents
+{% include base_path %}
+{% include publication-tabs.html active="patents" %}
 
 ### Biodegradable and Cut-Resistant Work Glove
 *Biyobozunur ve Kesilmez İş Eldiveni*

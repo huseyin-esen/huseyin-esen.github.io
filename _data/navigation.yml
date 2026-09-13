@@ -23,9 +23,6 @@ main:
   - title: "People"
     url: /people/
 
-  - title: "Patents"
-    url: /patents/
-
   - title: "News"
     url: /news/
 

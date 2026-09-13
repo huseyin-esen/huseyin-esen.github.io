@@ -61,4 +61,13 @@
          {% if include.active == cat %}aria-current="page"{% endif %}>{{ site.publication_category[cat].title }}</a>
     {% endif %}
   {% endfor %}
+
+  {% comment %}
+    Patents sit in the same switcher but are not part of the publications
+    collection: they have no journal, DOI or volume, so they stay a written
+    page rather than collection entries.
+  {% endcomment %}
+  <a class="pub-tabs__tab{% if include.active == 'patents' %} is-active{% endif %}"
+     href="{{ base_path }}/publications/patents/"
+     {% if include.active == 'patents' %}aria-current="page"{% endif %}>Patents</a>
 </nav>
