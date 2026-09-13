@@ -6,10 +6,12 @@
    ========================================================================== */
 
 /* Alpha washes rather than fixed colours, so the card holds on either
-   theme ground. */
+   theme ground. The rail is the most saturated element and already clears
+   4.59:1 against its white DOI text, so vividness is spent on the border
+   and the header band, which were washed out at 0.28 and 0.07. */
 $pubcard-rail       : $info-color;
-$pubcard-edge       : rgba($info-color, 0.28);
-$pubcard-head       : rgba($info-color, 0.07);
+$pubcard-edge       : rgba($info-color, 0.6);
+$pubcard-head       : rgba($info-color, 0.16);
 $pubcard-rail-width : 30px;
 
 .pubcard {
