@@ -59,7 +59,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : "hüseyin-esen-b339863"
+  linkedin         : "h%C3%BCseyin-esen-b339863/" # percent-encoded: the profile slug contains "ü"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
