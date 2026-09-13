@@ -1,0 +1,14 @@
+---
+layout: archive
+title: "Publications"
+permalink: /publications/books/
+author_profile: true
+---
+
+{% include base_path %}
+{% include publication-tabs.html active="books" %}
+
+{% assign cat_posts = site.publications | where: "category", "books" | sort: "date" | reverse %}
+{% for post in cat_posts %}
+  {% include archive-single.html %}
+{% endfor %}

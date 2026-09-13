@@ -1,0 +1,51 @@
+{% comment %}
+  Section switcher for the Publications pages. Each section is a real page of
+  its own, so switching loads a fresh page at the top instead of swapping
+  content in place. Pass the active category, e.g.:
+    {% include publication-tabs.html active="books" %}
+{% endcomment %}
+
+{% include base_path %}
+
+<style>
+  .pub-tabs__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em 1.5em;
+    align-items: flex-end;
+    margin: 1.5em 0 0;
+    border-bottom: 1px solid var(--global-border-color);
+  }
+
+  .pub-tabs__tab {
+    display: inline-block;
+    padding: 0.3em 0 0.5em;
+    margin-bottom: -1px;
+    border-bottom: 3px solid transparent;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--global-text-color-light);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  }
+
+  .pub-tabs__tab:hover,
+  .pub-tabs__tab:focus {
+    color: var(--global-link-color-hover);
+    text-decoration: none;
+  }
+
+  .pub-tabs__tab.is-active {
+    color: var(--global-text-color);
+    border-bottom-color: var(--global-link-color);
+  }
+</style>
+
+<nav class="pub-tabs__nav" aria-label="Publication types">
+  <a class="pub-tabs__tab{% if include.active == 'manuscripts' %} is-active{% endif %}"
+     href="{{ base_path }}/publications/"
+     {% if include.active == 'manuscripts' %}aria-current="page"{% endif %}>{{ site.publication_category.manuscripts.title | default: "Journal Articles" }}</a>
+  <a class="pub-tabs__tab{% if include.active == 'books' %} is-active{% endif %}"
+     href="{{ base_path }}/publications/books/"
+     {% if include.active == 'books' %}aria-current="page"{% endif %}>{{ site.publication_category.books.title | default: "Books" }}</a>
+</nav>
