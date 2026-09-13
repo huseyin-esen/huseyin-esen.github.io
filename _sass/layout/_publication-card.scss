@@ -104,6 +104,16 @@ $pubcard-rail-width : 30px;
   }
 }
 
+/* A banner-shaped figure is unreadable at 44% of the column — its own
+   labels end up a few pixels tall — so a wide one opts out of the float
+   and runs full width above the abstract. Set graphical_abstract_wide in
+   the publication's front matter. */
+.pubcard__fig--wide {
+  float: none;
+  width: 100%;
+  margin: 0 0 0.9em;
+}
+
 .pubcard__abstract {
   margin: 0;
   font-size: $type-size-6;

@@ -32,6 +32,9 @@ authors:
   - "Alanalp, M. B."
   - "Durmus, A."
 venue: 'Polymer Composites'
+# Exported from Graphical_Abstract.tif; banner-shaped, so it runs full width.
+graphical_abstract: 'lichen-pla-graphical-abstract.png'
+graphical_abstract_wide: true
 doi: '10.1002/pc.71612'
 paperurl: 'https://onlinelibrary.wiley.com/doi/10.1002/pc.71612'
 citation: 'Esen, H., Elbir, N., Alanalp, M. B., Durmus, A. (2026). &quot;Lichen-Derived Mineral Residue as a Renewable Particulate Filler in Polylactic Acid Biocomposites: Structure, Melt Rheology, Viscoelastic, and Flexural Behavior.&quot; <i>Polymer Composites</i>. DOI: 10.1002/pc.71612'
