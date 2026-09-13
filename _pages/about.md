@@ -19,20 +19,6 @@ In addition to my academic role, I have been working as an independent consultan
 - Antibacterial polymer coatings and thermosets
 - Biodegradable and specialty materials
 
-## Selected Publications
-
-- Photoinduced insolubilization of SBS-acrylate films of high thickness under 405 nm
-- Synthesis and characterization of linear dendritic homo and copolymers acrylated behera amine
-- Polymers: UV-Cured Polymer Nanocomposites
-- Light induced curing of Clay/polymer nanocomposites
-- Simultaneous photoinduced electron transfer and photoinduced CuAAC processes for antibacterial thermosets
-
-## Patents
-
-- Biodegradable and Cut-Resistant Work Glove (Biyobozunur ve Kesilmez İş Eldiveni)
-- Dimer Acid Based Oil Emulsifier Synthesis for Oil Dispersion Formulations
-- Pigment-Free White Coating
-
 ## Contact
 
 - Email: [huseyin.esen@kocaeli.edu.tr](mailto:huseyin.esen@kocaeli.edu.tr)

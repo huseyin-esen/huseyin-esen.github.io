@@ -8,8 +8,8 @@ author_profile: true
 ## News & Announcements
 
 **March 2026**
-Website launched. Stay tuned for updates on research activities, publications, and group news.
+Academic website launched.
 
 ---
 
-*This page will be updated regularly with news about publications, conference presentations, and group activities.*
+*This page is updated with news about publications, conference presentations, and group activities.*

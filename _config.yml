@@ -15,7 +15,7 @@ name                     : &name "Hüseyin Esen"
 description              : &description "Associate Professor at Kocaeli University | Polymer & Industrial Chemistry Expert"
 url                      : https://huseyin-esen.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "huseyin-esen/huseyin.esen.github.io"
+repository               : "huseyin-esen/huseyin-esen.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
@@ -50,7 +50,7 @@ author:
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
