@@ -35,7 +35,7 @@ abstract: >-
   more dominant in copolymerizations.
 # Dense figure: a 900px copy is displayed, an 1800px one linked.
 graphical_abstract: 'actes-dendron-graphical-abstract.png'
-graphical_abstract_full: 'actes-dendron-graphical-abstract-full.jpg'
+graphical_abstract_full: 'actes-dendron-graphical-abstract-full.png'
 paperurl: 'https://www.tandfonline.com/doi/full/10.1080/15685551.2015.1070506'
 citation: 'Esen, H. (2015). &quot;Synthesis and characterization of linear dendritic homo and copolymers acrylated behera amine.&quot; <i>Designed Monomers and Polymers</i>, 18(8), 745-752. DOI: 10.1080/15685551.2015.1070506'
 ---
