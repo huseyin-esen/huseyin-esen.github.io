@@ -1,4 +1,6 @@
-# Çalışma günlüğü — 13 Eylül 2026
+# Çalışma günlüğü
+
+Başlangıç: 13 Eylül 2026 · Son güncelleme: 28 Ekim 2026
 
 Bu dosya, sitede yapılan değişikliklerin ve **neden öyle yapıldığının** kaydıdır.
 Amaç: aradan zaman geçtiğinde "burayı neden böyle kurmuştuk?" sorusuna
@@ -234,22 +236,99 @@ düzeltildi; eski adres yeni adrese yönlendiriliyor.
 
 ---
 
+## 8. Grafik özetler, kart tasarımı ve künye denetimi
+
+13–14 Eylül 2026 · `541a4ab` → `538d784`
+
+### Kart
+
+- **İki renkli:** altın ray ve çerçeve (`$warning-color`), turkuaz başlık
+  bandı — paylaşılan referans karttaki gibi. DOI `0.82em` kalın.
+- Ray üzerindeki DOI metni beyaz değil **koyu gri**: beyaz altın üzerinde
+  2.28:1, koyu gri 5.24:1. 13 px kalın metin "büyük metin" sayılmaz, 4.5:1
+  gerekir.
+- Figür **sol üst köşede float**, `max-width: 44%`. `width` değil
+  `max-width`: küçük figür büyütülüp bulanıklaşmaz.
+  `graphical_abstract_wide` → `max-width: 55%` (2.5:1 lichen figürü 44%'te
+  okunamıyordu).
+- Temanın `figure { display:flex; justify-content:space-between }` kuralı
+  float'ı bozuyordu; seçiciler `.pubcard__body` altına alınıp `display:block`
+  verildi. 30em altında figür üste geçer.
+- `graphical_abstract_full` varsa figür büyük kopyaya bağlanır ve
+  `cursor: zoom-in` gösterir; yoksa imleç değişmez.
+
+### Doldurulan kayıtlar
+
+12 yayının **10'unda** tam özet ve grafik özet var. Eksik iki kayıt: 2016
+AIP bildirisi ve 2015 CRC kitap bölümü.
+
+Görseller: 900 px görünen + 1800 px tam boy. Düz renkli figürler 256 renkli
+PNG'ye iyi sıkışıyor (~110 / ~240 KB). CuAAC figürü 324×88'lik bir ekran
+görüntüsü, kendi boyutunda bırakıldı.
+
+### Bulunan ve düzeltilen veri hataları
+
+Hepsi Crossref'ten doğrulandı.
+
+| Kayıt | Sorun | Düzeltme |
+|---|---|---|
+| 2013 SBS-acrylate | DOI `10.1016/j.porgcoat.2012.10.003` **başka bir makaleye** aitti (Ustamehmetoğlu ve ark., pirit korozyonu); sayfalar 174-180 yanlıştı | DOI `…2012.09.023`, sayfa 209-215 |
+| 2003 cinnamate | DOI yoktu; Download Paper ResearchGate'e gidiyordu | DOI `10.1002/app.12594`, bağlantı Wiley |
+| 2021 bitkisel yağ | cilt/sayı/sayfa/DOI yoktu, tarih yer tutucu | 11(1) 393-401, `10.21597/jist.746693`, 2021-03-01 |
+| 2015 dendron | cilt/sayı/sayfa yoktu | 18(8) 745-752 |
+| 2016 GRIN | tarih çevrimiçi-önce (2015) iken cilt 27(1) = 2016 basımı; figür de 2016 diyor | tarih 2016-01-01 |
+
+Crossref ile **henüz doğrulanmamış** iki DOI: CuAAC
+(`10.1016/j.porgcoat.2017.01.011`) ve castor oil
+(`10.1002/ejlt.201500132`).
+
+### Özetlerde bildirilen ama düzeltilmeyen noktalar
+
+Özetler kelime kelime aktarıldı. Şunlar yazım hatası gibi görünüyor ama
+basılı metinde de böyle olabilir; kullanıcıya soruldu, cevap bekleniyor:
+
+- **2021 bitkisel yağ:** "şeçilmiştir" (seçilmiştir?); "alilenmiş" ile
+  "Alillenmiş" iki yazım.
+- **2017 CuAAC:** "photoinitator"; "to catalyst the CuAAC".
+- **2016 castor oil:** sonda "AECO-AA" — figür aynı değeri EACO-AA için
+  veriyor.
+- **2016 GRIN:** özette "Irgacure 184 (I 184)", figürde **I 819** — ikisi
+  farklı ürün, biri yanlış. Ayrıca "0.5 wt" (% eksik) ve
+  "Isopropylthoxanthone".
+- **2013 SBS:** "SBR unsaturations" — makale SBS üzerine.
+- **2017 LDPE:** "*Rinodina Poeltii*" — epitet normalde küçük harf.
+
+### Figürlerde
+
+- **2026 lichen PLA:** sitedeki figür **eski sürüm** (Graphical_Abstract.tif,
+  yeşil zemin). Kullanıcının gösterdiği yeni sürüm makinede bulunamadı.
+- **2016 GRIN:** film şemasında "Stigmal" / "Ormal" etiketleri bozuk
+  görünüyor.
+- **2015 dendron:** ilk figür hatalıydı (tekrarlar, "towstt", "DEC Flow",
+  Gemini filigranı); düzeltilmiş sürümle değiştirildi.
+
+### Konferanslar
+
+"Talks" menüsü **Conferences** oldu, iki sekme: Talks (`/conferences/`) ve
+Posters (`/conferences/posters/`). Posters boş. Sekme CSS'i ortak
+`_sass/layout/_section-tabs.scss` dosyasında.
+
+---
+
 ## Bekleyen işler
 
-1. **Grafik özet görselleri ve tam özet metinleri.** Kartın tam etkisi için
-   kayıt başına `graphical_abstract` (dosya `images/` altına) ve `abstract`
-   alanları gerekiyor. Şu an yalnızca 2026 makalesinde gerçek özet var,
-   hiçbirinde görsel yok. Alternatif: kartı yalnızca öne çıkan son birkaç
-   makalede görselli kullanmak.
-2. **2026 makalesinin cilt/sayı/sayfası**, dergi sayıya atadığında eklenmeli.
-3. **Clay/polymer kaydının durumu** (bkz. bölüm 6).
-4. **Patent numaraları ve tescil tarihleri** — patent detay sayfalarında şu an
-   yalnızca başlık ve açıklama var, künye satırı yok.
-5. **Şablon artıkları hâlâ yayında:** `_posts/` altındaki 5 lorem ipsum blog
-   yazısı (RSS akışına da giriyor), `_portfolio/` (2 dosya),
-   `_pages/markdown.md`, `terms.md`, `archive-layout-with-content.md`,
-   `non-menu-page.md`, `_data/comments/` altındaki 7 örnek yorum ve `images/`
-   içindeki şablon görselleri (`foo-bar-identity.jpg`, `image-alignment-*`
-   vb.). Hiçbiri menüde görünmüyor ama adresleri açık.
-6. **Talks/Teaching içerikleri yüzeysel.** Başlıklar gerçek ama açıklamalar
-   birer paragraflık ve jenerik; mekân/tarih bilgileri doğrulanmalı.
+1. **Kalan iki kayıt:** 2016 AIP shape memory bildirisi ve 2015 CRC kitap
+   bölümü için özet ve grafik özet.
+2. **2026 lichen PLA:** yeni figür sürümü (bölüm 8); cilt/sayı/sayfa,
+   dergi sayıya atadığında.
+3. **Özetlerdeki şüpheli noktalar** (bölüm 8) için kullanıcının kararı.
+4. **İki DOI'nin Crossref doğrulaması:** CuAAC ve castor oil.
+5. **GRIN figüründeki bozuk etiketler.**
+6. **Clay/polymer kaydının durumu** (bölüm 6).
+7. **Patent numaraları ve tescil tarihleri.**
+8. **Posters sekmesi boş;** Talks/Teaching açıklamaları jenerik, mekân ve
+   tarihler doğrulanmalı.
+9. **Şablon artıkları hâlâ yayında:** `_posts/` altındaki 5 lorem ipsum blog
+   yazısı (RSS akışına da giriyor), `_portfolio/`, `_pages/markdown.md`,
+   `terms.md`, `archive-layout-with-content.md`, `non-menu-page.md`,
+   `_data/comments/` ve `images/` içindeki şablon görselleri.

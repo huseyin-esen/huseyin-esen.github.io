@@ -172,6 +172,8 @@ exclude:
   - Capfile
   - config
   - docs # working notes, not part of the published site
+  - CLAUDE.md # instructions for Claude Code sessions
+  - incoming # raw figures awaiting conversion
   - Dockerfile
   - Gemfile
   - Gruntfile.js
