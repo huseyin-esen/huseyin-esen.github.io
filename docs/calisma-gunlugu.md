@@ -1,6 +1,6 @@
 # Çalışma günlüğü
 
-Başlangıç: 13 Eylül 2026 · Son güncelleme: 28 Ekim 2026
+Başlangıç: 13 Eylül 2026 · Son güncelleme: 4 Kasım 2026
 
 Bu dosya, sitede yapılan değişikliklerin ve **neden öyle yapıldığının** kaydıdır.
 Amaç: aradan zaman geçtiğinde "burayı neden böyle kurmuştuk?" sorusuna
@@ -278,9 +278,9 @@ Hepsi Crossref'ten doğrulandı.
 | 2015 dendron | cilt/sayı/sayfa yoktu | 18(8) 745-752 |
 | 2016 GRIN | tarih çevrimiçi-önce (2015) iken cilt 27(1) = 2016 basımı; figür de 2016 diyor | tarih 2016-01-01 |
 
-Crossref ile **henüz doğrulanmamış** iki DOI: CuAAC
-(`10.1016/j.porgcoat.2017.01.011`) ve castor oil
-(`10.1002/ejlt.201500132`).
+CuAAC (`10.1016/j.porgcoat.2017.01.011`) ve castor oil
+(`10.1002/ejlt.201500132`) DOI'leri 4 Kasım 2026'da Crossref'te doğrulandı:
+başlık, yazarlar, cilt/sayı/sayfa ve basım yılı sitedekiyle aynı.
 
 ### Özetlerde bildirilen ama düzeltilmeyen noktalar
 
@@ -315,6 +315,25 @@ Posters (`/conferences/posters/`). Posters boş. Sekme CSS'i ortak
 
 ---
 
+## 9. Şablon artıklarının temizliği
+
+4 Kasım 2026
+
+AcademicPages şablonundan kalan örnek içerik silindi: `_posts/` (5 lorem
+ipsum yazı, RSS akışına da giriyordu), `_portfolio/` ve `portfolio.html`,
+`markdown.md`, `terms.md`, `non-menu-page.md`,
+`archive-layout-with-content.md`, `year-archive.html`, `_data/comments/`
+ve kullanılmayan şablon görselleri (`foo-bar-identity`, `image-alignment`,
+`editing-talk`, `paragraph-*`, `site-logo`, Flickr görseli).
+
+Hiçbiri menüde değildi ve hiçbir sayfa onlara bağlantı vermiyordu.
+Korunanlar: `profile.png`, favicon'lar, `500x300.png` (`_config.yml` ve
+`cv.json` kullanıyor), `bio-photo*.jpg` (`_data/authors.yml`). `_config.yml`
+içindeki `posts`/`portfolio` koleksiyon tanımları zararsız olduğu için
+bırakıldı.
+
+---
+
 ## Bekleyen işler
 
 1. **Kalan iki kayıt:** 2016 AIP shape memory bildirisi ve 2015 CRC kitap
@@ -322,13 +341,11 @@ Posters (`/conferences/posters/`). Posters boş. Sekme CSS'i ortak
 2. **2026 lichen PLA:** yeni figür sürümü (bölüm 8); cilt/sayı/sayfa,
    dergi sayıya atadığında.
 3. **Özetlerdeki şüpheli noktalar** (bölüm 8) için kullanıcının kararı.
-4. **İki DOI'nin Crossref doğrulaması:** CuAAC ve castor oil.
-5. **GRIN figüründeki bozuk etiketler.**
-6. **Clay/polymer kaydının durumu** (bölüm 6).
-7. **Patent numaraları ve tescil tarihleri.**
-8. **Posters sekmesi boş;** Talks/Teaching açıklamaları jenerik, mekân ve
+4. **GRIN figüründeki bozuk etiketler.**
+5. **Clay/polymer kaydının durumu** (bölüm 6).
+6. **Patent numaraları ve tescil tarihleri.**
+7. **Posters sekmesi boş;** Talks/Teaching açıklamaları jenerik, mekân ve
    tarihler doğrulanmalı.
-9. **Şablon artıkları hâlâ yayında:** `_posts/` altındaki 5 lorem ipsum blog
-   yazısı (RSS akışına da giriyor), `_portfolio/`, `_pages/markdown.md`,
-   `terms.md`, `archive-layout-with-content.md`, `non-menu-page.md`,
-   `_data/comments/` ve `images/` içindeki şablon görselleri.
+8. **Boş arşiv sayfaları:** `_pages/tag-archive.html` ve
+   `category-archive.html` blog yazılarını listeliyordu; yazılar silinince
+   boş kaldılar. Menüde yoklar. İstenirse silinebilir.
