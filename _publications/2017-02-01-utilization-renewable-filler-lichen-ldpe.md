@@ -16,7 +16,7 @@ pages: '389-395'
 # Transcribed verbatim; only the species name is italicised, as the journal
 # sets it.
 abstract: >-
-  New organic filler, obtained from a local lichen type, *Rinodina Poeltii*,
+  New organic filler, obtained from a local lichen type, *Rinodina poeltii*,
   was utilized in low density polyethylene (LDPE). Thermal characterization of
   organic filler revealed its suitability to be used as filler during
   extrusion and injection processes. Filler did not exhibit any weight loss up

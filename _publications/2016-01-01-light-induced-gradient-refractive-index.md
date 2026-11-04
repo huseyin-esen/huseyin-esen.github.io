@@ -22,7 +22,7 @@ abstract: >-
   monomer to obtain necessary refractive index change over the lens surface.
   The best photoinitiator system was determined to give a stable and
   transparent wavefront as a mixture of 2 wt% Irgacure 250 (I 250), 1 wt%
-  Isopropylthoxanthone (ITX) and 0.5 wt Irgacure 184 (I 184). It is found that
+  Isopropylthioxanthone (ITX) and 0.5 wt% Irgacure 184 (I 184). It is found that
   a dipropylene glycol diacrylate (SR 508) and a triethylene glycol
   dimethacrylate (TGDM) improved the stability of the transparent wavefront
   because of higher Tg of the network. Haze problem, a consequence of

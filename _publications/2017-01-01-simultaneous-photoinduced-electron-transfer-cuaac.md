@@ -19,8 +19,8 @@ abstract: >-
   A combination of simultaneous photoinduced electron transfer and photoinduced
   CuAAC processes enables the in-situ preparation of antibacterial thermosets
   containing silver nanoparticles (AgNPs) in one-pot. Upon photolysis of
-  photoinitator, the generated radicals not only reduce Cu(II) into Cu(I)
-  activator to catalyst the CuAAC click reaction, but also simultaneously
+  photoinitiator, the generated radicals not only reduce Cu(II) into Cu(I)
+  activator to catalyze the CuAAC click reaction, but also simultaneously
   generate AgNPs from AgNO3 through electron transfer reaction. Due to their
   reduction potentials difference, the polymer matrix is formed before the
   formation of AgNPs, assisting to eliminate the agglomeration of them. The

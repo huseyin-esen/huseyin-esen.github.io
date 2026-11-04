@@ -20,7 +20,7 @@ abstract: >-
   Bu çalışmada ilk olarak epoksitlenmiş soya yağı, çift bağ içeren bir alkol
   ile modifiye edilmiştir. Çıkan ürün daha sonra çapraz bağlı hale
   getirilmiştir. Çapraz bağlı malzeme elde edebilmek için uygun
-  polimerizasyon yöntemlerinden fotopolimerizasyon şeçilmiştir. Sentezlenen
+  polimerizasyon yöntemlerinden fotopolimerizasyon seçilmiştir. Sentezlenen
   monomer, epoksi reçine olarak anılmıştır. Reçine kürleşme reaksiyonları ile
   kaplama ya da film olarak kullanılabilecek malzeme elde edilmiştir. İlk
   basamakta epoksitlenmiş soya yağında bulunan epoksi halkasının açılması
@@ -31,7 +31,7 @@ abstract: >-
   1H-NMR, 13C-NMR ve epoksi oksijen tayini ile karakterize edilmiştir.
   Reaksiyonda yaklaşık %50 verime ulaşılmıştır. Alil alkol üzerinde bulunan
   doymamış karbon-karbon çifte bağlarının reaktif olması nedeniyle,
-  fotopolimerizasyon reaksiyonu için uygundur. İkinci basamakta alilenmiş
+  fotopolimerizasyon reaksiyonu için uygundur. İkinci basamakta alillenmiş
   epoksitlenmiş yağı ile 4 fonksiyonel tiyol grubu içeren tetratiyol ve uygun
   fotobaşlatıcı karışımları hazırlanmıştır. Doymamış karbon-karbon çift
   bağlarının fonksiyonel –SH gruplarına mol cinsinden oranı 1:1 olarak

@@ -34,7 +34,7 @@ abstract: >-
   EACO-AA (85–15%) copolymer showed 0.7 GPa storage modulus while AESO-AA
   (85–15%) copolymer showed only 0.37 GPa modulus. When compared 5% weight
   loss temperatures as a thermal stability indicator, it was observed at
-  332°C for AECO-AA copolymer and 295°C for AESO-AA copolymer.
+  332°C for EACO-AA copolymer and 295°C for AESO-AA copolymer.
 # Text-dense figure, so a 900px copy is displayed and a 1800px one is linked.
 graphical_abstract: 'eaco-castor-oil-graphical-abstract.png'
 graphical_abstract_full: 'eaco-castor-oil-graphical-abstract-full.png'

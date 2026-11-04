@@ -284,8 +284,11 @@ başlık, yazarlar, cilt/sayı/sayfa ve basım yılı sitedekiyle aynı.
 
 ### Özetlerde bildirilen ama düzeltilmeyen noktalar
 
-Özetler kelime kelime aktarıldı. Şunlar yazım hatası gibi görünüyor ama
-basılı metinde de böyle olabilir; kullanıcıya soruldu, cevap bekleniyor:
+Özetler kelime kelime aktarıldı. Şunlar yazım hatası gibi görünüyordu ama
+basılı metinde de böyle olabilirdi. **4 Kasım 2026'da kullanıcı "hepsini
+düzelt" dedi; GRIN'deki I 184 / I 819 dışında hepsi düzeltildi.** Yani
+sitedeki bu özetler artık basılı metinden bu noktalarda bilerek farklı.
+Alil türevinde tek yazım olarak "alillenmiş" seçildi.
 
 - **2021 bitkisel yağ:** "şeçilmiştir" (seçilmiştir?); "alilenmiş" ile
   "Alillenmiş" iki yazım.
@@ -340,7 +343,8 @@ bırakıldı.
    bölümü için özet ve grafik özet.
 2. **2026 lichen PLA:** yeni figür sürümü (bölüm 8); cilt/sayı/sayfa,
    dergi sayıya atadığında.
-3. **Özetlerdeki şüpheli noktalar** (bölüm 8) için kullanıcının kararı.
+3. **GRIN özetinde Irgacure 184 mü 819 mu?** Özet "Irgacure 184 (I 184)"
+   diyor, figür "I 819". Doğrusunu yalnızca kullanıcı bilir; sorulacak.
 4. **GRIN figüründeki bozuk etiketler.**
 5. **Clay/polymer kaydının durumu** (bölüm 6).
 6. **Patent numaraları ve tescil tarihleri.**

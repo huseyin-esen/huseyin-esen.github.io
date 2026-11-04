@@ -20,7 +20,7 @@ abstract: >-
   Photosensitive styrene–butadiene–styrene formulation was prepared for
   flexographic plate production. Real-time FTIR analyses of 500 μm thick
   samples were performed and polymerization reaction was followed from
-  overtones of acrylate and SBR unsaturations. Photo bleaching studies of
+  overtones of acrylate and SBS unsaturations. Photo bleaching studies of
   photoinitiator revealed that the optimum concentration is 1.6 p (0.98 wt%).
   In spite of the high viscosity of the resin, the termination mechanism in
   the SBS acrylate resin was found to be bimolecular. The oxygen inhibition
